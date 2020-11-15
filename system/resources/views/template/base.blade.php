@@ -31,6 +31,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+   <div class="Container">
+     <div class="row">
+      <div class="col-md-12">
+        @include('template.utils.notif')
+      </div>
+       
+     </div>
+   </div>
     <!-- Content Header (Page header) -->
         @yield('content')
     <!-- /.content -->

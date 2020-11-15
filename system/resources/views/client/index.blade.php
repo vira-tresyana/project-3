@@ -51,7 +51,7 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="#header">Beranda</a></li>
-          <li><a href="#services">kategori</a></li>
+          <li><a href="{{url('keranjang')}}">Keranjang</a></li>
           <li><a href="#team">Produk</a></li>
           <li><a href="{{url('login')}}#portfolio">Login</a></li>
           <li><a href="{{url('registrasi')}}#blog">Registrasi</a></li>
@@ -78,6 +78,7 @@
                 <!-- layer 2 -->
                 <div class="layer-1-2 wow animate__fadeIn animate__animated" data-wow-duration="2s" data-wow-delay=".1s">
                   <h1 class="title2">Happy Shopping!</h1>
+                  @include('template.utils.notif')
                 </div>
                 
               </div>
@@ -114,75 +115,7 @@
               <!-- end about-details -->
             </div>
           </div>
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="about-move">
-              <div class="services-details">
-                <div class="single-services">
-                  
-                </div>
-              </div>
-              <!-- end about-details -->
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <!-- end col-md-4 -->
-            <div class=" about-move">
-              <div class="services-details">
-                <div class="single-services">
-                  
-                  <h4><b>Sneakers</b></h4>
-                  <p>
-                    Beli Sneakers Original Online berkualitas dengan harga murah terbaru di VIRASHOP! Pembayaran mudah, pengiriman cepat <br> Jenis:Pria Dewasa, Wanita Dewasa, Anak-Anak.
-                  </p>
-                </div>
-              </div>
-              <!-- end about-details -->
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <!-- end col-md-4 -->
-            <div class=" about-move">
-              <div class="services-details">
-                <div class="single-services">
-                  
-                  <h4><b>Laptop</b></h4>
-                  <p>
-                    Beli Laptop Dengan Pilihan Terlengkap dan Harga Termurah. Belanja Produk Laptop Aman dan Nyaman di VIRASHOP. Pengiriman Cepat dan Terpercaya. <br> Jenis: Asus, Acer, Lenovo.
-                  </p>
-                </div>
-              </div>
-              <!-- end about-details -->
-            </div>
-          </div>
-          <!-- End Left services -->
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <!-- end col-md-4 -->
-            <div class=" about-move">
-              <div class="services-details">
-                <div class="single-services">
-                  
-                 
-                </div>
-              </div>
-              <!-- end about-details -->
-            </div>
-          </div>
-          <!-- End Left services -->
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <!-- end col-md-4 -->
-            <div class=" about-move">
-              <div class="services-details">
-                <div class="single-services">
-                
-                  <h4><b>Handphone</b></h4>
-                  <p>
-                   Beli Handphone Dengan Pilihan Terlengkap dan Harga Termurah tentunya original. Belanja Produk Handphone Aman dan Nyaman di VIRASHOP. Pengiriman Cepat dan terpercaya. <br> Jenis: Iphone, Oppo, Xiomi.
-                  </p>
-                </div>
-              </div>
-              <!-- end about-details -->
-            </div>
-          </div>
+          
         </div>
       </div>
     </div><!-- End Services Section -->
@@ -191,6 +124,7 @@
     <div id="team" class="our-team-area area-padding">
       <div class="container">
         <div class="row">
+
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="section-headline text-center">
               <h2>Produk</h2>
@@ -198,7 +132,8 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-3 col-sm-3 col-xs-12">
+          @foreach($list_produk as $produk)
+          <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="single-team-member">
               <div class="team-img">
                 <a href="#">
@@ -208,174 +143,16 @@
                 </div>
               </div>
               <div class="team-content text-center">
-                <h4>Jam Tangan Pria</h4>
-                <p>Rp.350.000</p>
+                <h4>{{$produk->nama}}</h4>
+                <p>Harga : Rp. {{number_format($produk->harga)}} | Stok : {{$produk->stok}}</p>
+              <div class="btn-group">
+                <a href="{{url('beli', $produk->id)}}" class="btn btn-danger"><i class="fa fa-shopping-cart"></i></a>
+              </div>
               </div>
             </div>
           </div>
-          <!-- End column -->
-          <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="single-team-member">
-              <div class="team-img">
-                <a href="#">
-                  <img src="{{url('public')}}/user/assets/img/2.jpg" alt="">
-                </a>
-              </div>
-              <div class="team-content text-center">
-                <h4>Jam Tangan Wanita</h4>
-                <p>Rp.250.000</p>
-              </div>
-            </div>
-          </div>
-          <!-- End column -->
-          <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="single-team-member">
-              <div class="team-img">
-                <a href="#">
-                  <img src="{{url('public')}}/user/assets/img/3.jpg" alt="">
-                </a>
-                
-              </div>
-              <div class="team-content text-center">
-                <h4>Jam Tangan Couple</h4>
-                <p>Rp.400.000</p>
-              </div>
-            </div>
-          </div>
-          <!-- End column -->
-          <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="single-team-member">
-              <div class="team-img">
-                <a href="#">
-                  <img src="{{url('public')}}/user/assets/img/4.jpg" alt="">
-                </a>
-               </div>
-              <div class="team-content text-center">
-                <h4>Sneakers Wanita</h4>
-                <p>Rp.175.000</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="single-team-member">
-              <div class="team-img">
-                <a href="#">
-                  <img src="{{url('public')}}/user/assets/img/5.jpg" alt="">
-                </a>
-                <div class="team-social-icon text-center">
-                </div>
-              </div>
-              <div class="team-content text-center">
-                <h4>Sneakers Pria</h4>
-                <p>Rp.300.000</p>
-              </div>
-            </div>
-          </div>
-           <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="single-team-member">
-              <div class="team-img">
-                <a href="#">
-                  <img src="{{url('public')}}/user/assets/img/6.jpg" alt="">
-                </a>
-                <div class="team-social-icon text-center">
-                </div>
-              </div>
-              <div class="team-content text-center">
-                <h4>Sneakers Anak-Anak</h4>
-                <p>Rp.150.000</p>
-              </div>
-            </div>
-          </div>
-           <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="single-team-member">
-              <div class="team-img">
-                <a href="#">
-                  <img src="{{url('public')}}/user/assets/img/7.jpg" alt="">
-                </a>
-                <div class="team-social-icon text-center">
-                </div>
-              </div>
-              <div class="team-content text-center">
-                <h4>Laptop Asus</h4>
-                <p>Rp.4.200.000</p>
-              </div>
-            </div>
-          </div>
-           <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="single-team-member">
-              <div class="team-img">
-                <a href="#">
-                  <img src="{{url('public')}}/user/assets/img/8.jpg" alt="">
-                </a>
-                <div class="team-social-icon text-center">
-                </div>
-              </div>
-              <div class="team-content text-center">
-                <h4>Laptop Acer</h4>
-                <p>Rp.3.750.000</p>
-              </div>
-            </div>
-          </div>
-           <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="single-team-member">
-              <div class="team-img">
-                <a href="#">
-                  <img src="{{url('public')}}/user/assets/img/9.jpg" alt="">
-                </a>
-                <div class="team-social-icon text-center">
-                </div>
-              </div>
-              <div class="team-content text-center">
-                <h4>Laptop Lenovo</h4>
-                <p>Rp.4.419.000</p>
-              </div>
-            </div>
-          </div>
-           <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="single-team-member">
-              <div class="team-img">
-                <a href="#">
-                  <img src="{{url('public')}}/user/assets/img/10.jpg" alt="">
-                </a>
-                <div class="team-social-icon text-center">
-                </div>
-              </div>
-              <div class="team-content text-center">
-                <h4>Iphone</h4>
-                <p>Rp.25.000.000</p>
-              </div>
-            </div>
-          </div>
-           <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="single-team-member">
-              <div class="team-img">
-                <a href="#">
-                  <img src="{{url('public')}}/user/assets/img/11.jpg" alt="">
-                </a>
-                <div class="team-social-icon text-center">
-                </div>
-              </div>
-              <div class="team-content text-center">
-                <h4>Xiomi</h4>
-                <p>Rp.2.500.000</p>
-              </div>
-            </div>
-          </div>
-           <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="single-team-member">
-              <div class="team-img">
-                <a href="#">
-                  <img src="{{url('public')}}/user/assets/img/12.jpg" alt="">
-                </a>
-                <div class="team-social-icon text-center">
-                </div>
-              </div>
-              <div class="team-content text-center">
-                <h4>Oppo</h4>
-                <p>Rp.4.100.000</p>
-              </div>
-            </div>
-          </div>
+        @endforeach
+        </div>
 
     <!-- ======= Contact Section ======= -->
     <div id="contact" class="contact-area">
